@@ -1,8 +1,17 @@
 import React, { Component } from 'react'
 import { Navbar, NavbarBrand } from 'reactstrap';
 import Menu from './components/Menu.component';
+import { DISHES } from './shared/dishes';
 
 export default class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      dishes: DISHES
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -11,7 +20,7 @@ export default class App extends Component {
             <NavbarBrand>Ristorante Con Fusion</NavbarBrand> 
           </div>
         </Navbar>
-        <Menu />
+        <Menu dishes={this.state.dishes} />
       </div>
     );
   }
