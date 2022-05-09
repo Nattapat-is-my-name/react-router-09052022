@@ -25,15 +25,13 @@ export default class Main extends Component {
     this.setState({ selectedDish: dishId })
   }
   render() {
-    const HomePage = () => {
-      return (
+    const HomePage = 
         <Home
           dish={this.state.dishes.filter((dish) => dish.featured)[0]}
           promotion={this.state.promotions.filter((promo) => promo.featured)[0]}
           leader={this.state.leaders.filter((leader) => leader.featured)[0]}
-        />
-      );
-    }
+        />;
+    const renderMenu = <Menu dishes={this.state.dishes} selectedDish={this.state.selectedDish} onClick={(dishId) => this.onDishSelect(dishId)} />;
     return (
       <div>
         <Navbar dark color="primary">
@@ -42,13 +40,13 @@ export default class Main extends Component {
           </div>
         </Navbar>
         <Header />
-        <Menu dishes={this.state.dishes} selectedDish={this.state.selectedDish} onClick={(dishId) => this.onDishSelect(dishId)} />
-        <Footer />
         <Routes>
           <Route path='/' element={HomePage} />
           <Route path='/home' element={HomePage} />
+          <Route path='/menu' element={renderMenu} />
           <Route exact path='/contactus' element={<Contact />} />
         </Routes>
+        <Footer />
       </div>
     )
   }
