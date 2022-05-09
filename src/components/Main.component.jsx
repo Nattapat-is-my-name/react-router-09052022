@@ -4,6 +4,8 @@ import Menu from './Menu.component'
 import { DISHES } from '../shared/dishes'
 import Header from './Header.component'
 import Footer from './Footer.component'
+import Home from './Home.component'
+import { Routes, Route } from 'react-router-dom'
 
 export default class Main extends Component {
   constructor(props) {
@@ -17,6 +19,11 @@ export default class Main extends Component {
     this.setState({ selectedDish: dishId })
   }
   render() {
+    const HomePage = () => {
+      return (
+        <Home />
+      );
+    }
     return (
       <div>
         <Navbar dark color="primary">
@@ -27,6 +34,10 @@ export default class Main extends Component {
         <Header />
         <Menu dishes={this.state.dishes} selectedDish={this.state.selectedDish} onClick={(dishId) => this.onDishSelect(dishId)} />
         <Footer />
+        <Routes>
+          <Route path='/' element={HomePage} />
+          <Route path='/home' element={HomePage} />
+        </Routes>
       </div>
     )
   }
