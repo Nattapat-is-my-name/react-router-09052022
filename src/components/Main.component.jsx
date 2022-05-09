@@ -34,11 +34,11 @@ export default class Main extends Component {
     const renderMenu = <Menu dishes={this.state.dishes} selectedDish={this.state.selectedDish} onClick={(dishId) => this.onDishSelect(dishId)} />;
     return (
       <div>
-        <Navbar dark color="primary">
+        {/* <Navbar dark color="primary">
           <div className="container">
             <NavbarBrand href='/'>Ristorante Con Fusion</NavbarBrand>
           </div>
-        </Navbar>
+        </Navbar> */}
         <Header />
         <Routes>
           <Route path='/' element={HomePage} />
